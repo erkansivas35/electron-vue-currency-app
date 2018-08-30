@@ -14,9 +14,9 @@
       </div>        
     </div>
 
-    <CoinList title="Currency" :currents="currents" />
+    <CoinList title="Currency" :currents="currents" :isLoading="isLoading" />
 
-    <CoinList title="Crypto Currency" :currents="cryptoCurrents" />
+    <CoinList title="Crypto Currency" :currents="cryptoCurrents" :isLoading="isLoading" />
 
   </div>  
 </template>
@@ -32,6 +32,7 @@ export default {
   data() {
     return {      
       name: 'Home Page',
+      isLoading: true,
       currents: [],
       cryptoCurrents: []
     }
@@ -42,6 +43,7 @@ export default {
           console.log(response)
           if (response.statusText == 'OK') {
             this.currents = response.data
+            this.isLoading = false
           }
         })
         .catch(e => {
@@ -53,6 +55,7 @@ export default {
           console.log(response)
           if (response.statusText == 'OK') {
             this.cryptoCurrents = response.data
+            this.isLoading = false
           }
         })
         .catch(e => {

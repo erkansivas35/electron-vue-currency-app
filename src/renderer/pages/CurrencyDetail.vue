@@ -6,7 +6,11 @@
         <h3>Currency Detail</h3>
       </div>
     </div>      
-  </div>       
+  </div>  
+
+  <div class="content-row">
+    <p>Currency detail page</p>  
+  </div>     
   </div>
 </template>
 

@@ -4,10 +4,11 @@
       <p>{{ title }}</p>
     </div>
     <div class="content-row">
-      <Search v-on:coinSearching="searchCoin" :title="title" />
+      <Search v-on:coinSearching="searchCoin" :title="title" v-if="!isLoading" />
     </div>    
     <div class="content-box">
-      <div class="content-box-col" v-for="(current, index) in filterCoins" :key="index">
+      <Loading v-if="isLoading" />
+      <div class="content-box-col" v-for="(current, index) in filterCoins" :key="index" v-if="!isLoading">
           <div class="coin-logo">
             <img src="../assets/img/usd-icon.png" :alt="current.full_name">
           </div>
@@ -29,6 +30,7 @@
 
 <script>
 import Search from '../components/Search'
+import Loading from '../components/Loading'
 
 export default {
   name: 'CoinList',
@@ -40,6 +42,10 @@ export default {
     currents: {
       type: Array,
       required: true
+    },
+    isLoading: {
+      type: Boolean,
+      required: false
     }
   }, 
   data() {
@@ -76,7 +82,8 @@ export default {
     }
   },  
   components: {
-    Search
+    Search,
+    Loading
   }
 }
 </script>
@@ -106,6 +113,7 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  position: relative;
 
   &-col {
     display: flex;
