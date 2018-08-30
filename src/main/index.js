@@ -16,7 +16,7 @@ app.on('ready', () => {
   });
 
   //Open DevTools
-  window.webContents.openDevTools();
+  //window.webContents.openDevTools();
 
   if (isDevelopment) {
     window.loadURL(`http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`);
@@ -39,18 +39,18 @@ app.on('ready', () => {
       label: 'Menu',
       submenu: [
         {
-          label: 'API',
+          label: 'Use API',
           click() {
             shell.openExternal(
-              'https://jsonplaceholder.typicode.com'
+              'https://github.com/prosman/dovizcom-api'
             );
           }
         },
         {
-          label: 'View on GitHub',
+          label: 'View on GitLab',
           click() {
             shell.openExternal(
-              'https://gitlab.com/erkansivas35/electron-webpack-with-vuejs-starter-template'
+              'https://gitlab.com/erkansivas35/electron-vue-currency-app'
             );
           },
         },
@@ -65,7 +65,7 @@ app.on('ready', () => {
     },
   ]);
 
-  //Menu.setApplicationMenu(menu);
+  Menu.setApplicationMenu(menu);
 });
 
 app.on('window-all-closed', () => {
