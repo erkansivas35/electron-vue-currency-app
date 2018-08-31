@@ -10,7 +10,9 @@
       <Loading v-if="isLoading" />
       <div class="content-box-col" v-for="(current, index) in filterCoins" :key="index" v-if="!isLoading">
           <div class="coin-logo">
-            <img src="../assets/img/usd-icon.png" :alt="current.full_name">
+            <router-link :to="coinDetailGo(current.code)">
+              <img src="../assets/img/usd-icon.png" :alt="current.full_name">
+            </router-link>
           </div>
           <div class="coin-info">
           <div class="coin-name">
@@ -19,8 +21,8 @@
           <div class="coin-full-name">
             {{ current.full_name }}
           </div>
-          <div class="coin-price green">
-            + {{ current.selling | coinFixed }}
+          <div :class="current.change_rate | changeRate ">
+            <span :class="current.change_rate | arrowChange"></span> {{ current.selling | coinFixed }}
           </div>              
           </div>
       </div>                                                      
@@ -56,6 +58,18 @@ export default {
   methods: {
     searchCoin(q) {
       this.searchCoins = q;
+    },
+    coinDetailGo(routerVal) {
+      let coinType = this.title.replace(' ', '');      
+      switch (coinType) {
+              case 'Currency':
+                coinType = 'currencies'
+                break;
+              case 'CryptoCurrency':
+                coinType = 'coins'
+                break;
+            }         
+      return `/currency-detail/${routerVal}/${coinType}`
     }
   },
   filters: {
@@ -65,13 +79,19 @@ export default {
     nameFixed(val) {
       let value = val;
       if (val.length > 3) {
-        value = `${val.substring(0, 5)}...`
+        value = `${val.substring(0, 4)}...`
       }
 
       return value
     },
     idFixed(val) {
       return val.replace(' ', '')
+    },
+    changeRate(val) {
+      return `coin-price ${val >= 0 ? 'green' : 'red'}`
+    },
+    arrowChange(val) {
+      return val >= 0 ? 'arrow-up' : 'arrow-down'
     }
   },
   computed: {
@@ -80,7 +100,7 @@ export default {
         return coin.full_name.toLowerCase().includes(this.searchCoins.toLowerCase())
       });
     }
-  },  
+  },
   components: {
     Search,
     Loading
@@ -193,6 +213,7 @@ export default {
         width: 100%;
         text-align: right;
         font-size: 12px;
+        position: relative;
 
         &.green {
           color: #67c342;
@@ -200,6 +221,32 @@ export default {
 
         &.red {
           color: #e90041;
+        }
+
+        & .arrow-up {
+          width: 0;
+          height: 0;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-bottom: 5px solid #67c342;
+          position: absolute;
+          left: auto;
+          margin-left: -15px;
+          top: 50%;
+          transform: translate(0, -40%);
+        }
+
+        & .arrow-down {
+          width: 0;
+          height: 0;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-top: 5px solid #e90041;
+          position: absolute;
+          left: auto;
+          margin-left: -15px;
+          top: 50%;
+          transform: translate(0, -40%);
         }
       }
     }

@@ -14,7 +14,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/currency-detail',
+      path: '/currency-detail/:coinId?/:coinType?',
       name: 'CurrencyDetail',
       component: CurrencyDetail
     }

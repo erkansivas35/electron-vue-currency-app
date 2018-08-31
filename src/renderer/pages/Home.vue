@@ -26,6 +26,7 @@ import axios from 'axios';
 
 //Components
 import CoinList from '../components/CoinList'
+import { setInterval } from 'timers';
 
 export default {
   name: "Home",
@@ -37,30 +38,41 @@ export default {
       cryptoCurrents: []
     }
   },
+  methods: {
+    coinFetch(url, type) {
+      axios.get(url)
+          .then(response => {            
+            if (response.statusText == 'OK') {
+              switch (type) {
+                case 'currents':
+                  this.currents = response.data;
+                  this.isLoading = false
+                  break;
+                case 'cryptoCurrents':
+                  this.cryptoCurrents = response.data;
+                  this.isLoading = false
+                  break;
+              }               
+            }
+          })
+          .catch(e => {
+            console.log(e)
+          })      
+    }
+  },
   created() {
-    axios.get(`https://doviz.com/api/v1/currencies/all/latest`)
-        .then(response => {
-          console.log(response)
-          if (response.statusText == 'OK') {
-            this.currents = response.data
-            this.isLoading = false
-          }
-        })
-        .catch(e => {
-          console.log(e)
-        })
+    const currentsUrl = 'https://doviz.com/api/v1/currencies/all/latest'
+    const cryptoCurrentsUrl = 'https://www.doviz.com/api/v1/coins/all/latest'
+    
+    this.coinFetch(currentsUrl, 'currents')
+    this.coinFetch(cryptoCurrentsUrl, 'cryptoCurrents')       
 
-    axios.get(`https://www.doviz.com/api/v1/coins/all/latest`)
-        .then(response => {
-          console.log(response)
-          if (response.statusText == 'OK') {
-            this.cryptoCurrents = response.data
-            this.isLoading = false
-          }
-        })
-        .catch(e => {
-          console.log(e)
-        })        
+    setInterval(() => {
+      if (this.$route.path == '/') {
+        this.coinFetch(currentsUrl, 'currents')
+        this.coinFetch(cryptoCurrentsUrl, 'cryptoCurrents')       
+      }
+    },5000)       
   },
   components: {
     CoinList
