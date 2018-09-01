@@ -41,7 +41,8 @@ export default {
   methods: {
     coinFetch(url, type) {
       axios.get(url)
-          .then(response => {            
+          .then(response => { 
+            this.isLoading = true           
             if (response.statusText == 'OK') {
               switch (type) {
                 case 'currents':

@@ -4,6 +4,7 @@ import router from './router/router'
 
 require('./font-awesome/index')
 
+
 new Vue({
   el: '#app',
   router,
