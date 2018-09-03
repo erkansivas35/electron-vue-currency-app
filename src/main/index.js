@@ -12,7 +12,8 @@ app.on('ready', () => {
     height: 600,
     minWidth: 800,
     minHeight: 435,
-    webPreferences: {webSecurity: false} // disable cors
+    webPreferences: {webSecurity: false}, // disable cors
+    title: 'Currency App'
   });
 
   //Open DevTools

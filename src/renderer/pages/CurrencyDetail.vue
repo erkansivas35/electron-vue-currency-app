@@ -20,7 +20,7 @@
     <div class="content-row" v-if="!isLoading">
       <div class="content-col">
         <div class="chart-wrapper">
-          <canvas style="width: 100%; height: 300px; background: #000"></canvas>
+          <GraphChart />
         </div>
       </div>
 
@@ -54,6 +54,7 @@
 import axios from 'axios';
 import { setInterval } from 'timers';
 import Loading from '../components/Loading'
+import GraphChart from '../components/GraphChart'
 
 export default {
   name: 'CurrencyDetail',
@@ -112,7 +113,8 @@ export default {
     }
   },
   components: {
-    Loading
+    Loading,
+    GraphChart
   }
 }
 </script>
