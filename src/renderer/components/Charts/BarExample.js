@@ -16,6 +16,6 @@ export default {
     this.renderChart({
       labels: this.labels,
       datasets: this.datasets
-    }, { responsive: true, maintainAspectRatio: false })
+    }, { responsive: true, maintainAspectRatio: false})
   }
 }

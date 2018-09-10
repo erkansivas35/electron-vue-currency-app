@@ -12,7 +12,7 @@
     </div>
     <div class="menu-col">
       <div class="icon">
-        <router-link to="/currency-detail" :class="menuLink()"><font-awesome-icon icon="rocket" /></router-link>
+        <router-link to="#" :class="menuLink()"><font-awesome-icon icon="rocket" /></router-link>
       </div>        
     </div>
     <div class="menu-col">

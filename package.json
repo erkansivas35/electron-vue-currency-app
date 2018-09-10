@@ -10,7 +10,7 @@
   "author": "Erkan Sivas",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^2.0.2",
+    "electron": "^2.0.8",
     "electron-builder": "^20.15.1",
     "electron-webpack": "^2.1.2",
     "node-sass": "^4.9.3",
