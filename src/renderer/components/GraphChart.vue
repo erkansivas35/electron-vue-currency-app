@@ -8,6 +8,16 @@ import axios from 'axios';
 import moment from 'moment'
 
 export default {
+  props: {
+    chartData: {
+      type: Array,
+      required: true
+    },
+    type: {
+      type: String,
+      required: true
+    }
+  },
   components: {
     BarExample
   },
@@ -27,8 +37,8 @@ export default {
   methods: {
     chartBindData() {
       let chartDataLength = this.chartData.length;
-      if (this.chartData.length > 300) {
-        chartDataLength = 300
+      if (this.chartData.length > 200) {
+        chartDataLength = 200
       }
       for (let i = 0; i < chartDataLength; i++) {
         this.labels.push(moment.unix(this.chartData[i].update_date).format('DD/MM/YYYY HH:mm'))

@@ -29,7 +29,7 @@ export default {
     this.renderChart(this.chartData, this.options)
     setTimeout(() => {
       this.fillData()
-    }, 300)
+    }, 250)
     setInterval(() => {
       this.fillData()
     }, 5000)

@@ -20,7 +20,7 @@
     <div class="content-row" v-if="!isLoading">
       <div class="content-col">
         <div class="chart-wrapper">
-          <GraphChart />
+          <GraphChart :chartData="chartData" :type="type" />
         </div>
       </div>
 
@@ -62,7 +62,9 @@ export default {
     return {      
       name: 'Curency Detail',
       isLoading: true,
-      currents: []
+      currents: [],
+      chartData: [],
+      type: this.$route.params.coinId
     }
   },
   methods: {
@@ -72,6 +74,17 @@ export default {
             if (response.statusText == 'OK') {
               this.currents = response.data  
               this.isLoading = false         
+            }
+          })
+          .catch(e => {
+            console.log(e)
+          })  
+    },
+    chartGraphFetch(url) {
+      axios.get(url)
+          .then(response => {
+            if (response.statusText == 'OK') {
+              this.chartData = response.data       
             }
           })
           .catch(e => {
@@ -94,7 +107,10 @@ export default {
     }
     
     let currentsUrl = `https://www.doviz.com/api/v1/${type}/${id}/latest`;       
+    let chartUrl = `https://doviz.com/api/v1/${type}/${id}/daily`;       
     this.coinFetch(currentsUrl)       
+    this.chartGraphFetch(chartUrl)
+
     setInterval(() => {
       if (this.$route.name == 'CurrencyDetail') {
         this.coinFetch(currentsUrl)      
