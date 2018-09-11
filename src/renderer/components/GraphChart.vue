@@ -4,6 +4,8 @@
 
 <script>
 import BarExample from "./Charts/BarExample.js";
+import axios from 'axios';
+import moment from 'moment'
 
 export default {
   components: {
@@ -11,35 +13,48 @@ export default {
   },
   data() {
     return {
-      labels: [
-        "04/09/2018",
-        "05/09/2018",
-        "06/09/2018",
-        "07/09/2018",
-        "08/09/2018",
-        "09/09/2018",
-        "10/09/2018",
-        "04/09/2018",
-        "05/09/2018"
-      ],
+      chartData: [],
+      labels: [],
       datasets: [
         {
-          label: 'USD',
+          label: this.$route.params.coinId,
           backgroundColor: "#4482fa",
-          data: [
-            60,
-            50,
-            50,
-            20,
-            60,
-            140,
-            130,
-            135,
-            100
-          ]
+          data: []
         }
       ]
     };
+  },
+  methods: {
+    chartBindData() {
+      let chartDataLength = this.chartData.length;
+      if (this.chartData.length > 300) {
+        chartDataLength = 300
+      }
+      for (let i = 0; i < chartDataLength; i++) {
+        this.labels.push(moment.unix(this.chartData[i].update_date).format('DD/MM/YYYY HH:mm'))
+        this.datasets[0].data.push(this.chartData[i].selling.toFixed(4))
+      }
+    }
+  },
+  mounted() {
+    let type = this.$route.params.coinType
+    let id = this.$route.params.coinId
+    if (type == undefined && id == undefined) {
+      type = "currencies"
+      id = "USD"
+    } else {
+      type = this.$route.params.coinType
+      id = this.$route.params.coinId
+    }
+
+    const apiUrl = `http://doviz.com/api/v1/${type}/${id}/daily`
+    axios.get(apiUrl)
+        .then(res => {
+          if (res.statusText == 'OK') {
+            this.chartData = res.data
+            this.chartBindData()
+          }
+        })
   }
 };
 </script>

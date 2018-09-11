@@ -1,4 +1,6 @@
 import { Bar } from './BaseCharts'
+import { reactiveData } from './mix'
+import { setTimeout } from 'timers';
 
 export default {
   props: {
@@ -12,10 +14,33 @@ export default {
     }
   },
   extends: Bar,
-  mounted() {
-    this.renderChart({
-      labels: this.labels,
-      datasets: this.datasets
-    }, { responsive: true, maintainAspectRatio: false })
+  mixins: [reactiveData],
+  data: () => ({
+    chartData: '',
+    options: {
+      responsive: true,
+      maintainAspectRatio: false
+    }
+  }),
+  created () {
+    this.fillData()
+  },
+  mounted () {
+    this.renderChart(this.chartData, this.options)
+    setTimeout(() => {
+      this.fillData()
+    }, 300)
+    setInterval(() => {
+      this.fillData()
+    }, 5000)
+  },
+
+  methods: {
+    fillData () {
+      this.chartData = {
+        labels: this.labels,
+        datasets: this.datasets
+      }
+    }
   }
 }
