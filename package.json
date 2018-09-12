@@ -7,8 +7,7 @@
   "scripts": {
     "start": "electron-webpack dev",
     "build": "electron-webpack && electron-builder",
-    "build-mac": "electron-packager . --overwrite --asar=true --platform=darwin --arch=x64 --icon=src/renderer/assets/icons.icns --prune=true --out=release-builds",
-    "create-mac": "electron-installer-dmg ./release-builds/Electron\\ tutorial\\ app-darwin-x64/Electron\\ tutorial\\ app.app electron-tutorial-app --out=release-builds --overwrite --icon=src/renderer/assets/icons.icns"
+    "build-mac": "electron-webpack && electron-packager . --overwrite --asar=true --platform=darwin --arch=x64 --icon=src/renderer/assets/icons.icns --prune=true --out=release-builds"
   },
   "author": "Erkan Sivas",
   "license": "MIT",
@@ -23,8 +22,8 @@
     "vue-loader": "^15.2.2",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.9.1",
-    "electron-installer-dmg": "^0.1.2",
-    "electron-packager": "^8.7.2"
+    "electron-installer-dmg": "^2.0.0",
+    "electron-packager": "^12.1.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.4",
