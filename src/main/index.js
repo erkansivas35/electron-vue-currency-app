@@ -13,11 +13,12 @@ app.on('ready', () => {
     minWidth: 800,
     minHeight: 435,
     webPreferences: {webSecurity: false}, // disable cors
-    title: 'Currency App'
+    title: 'Foreign Currencies',
+    icon: path.join(__dirname, 'src/renderer/assets/icon/64x64.png')
   });
 
   //Open DevTools
-  window.webContents.openDevTools();
+  //window.webContents.openDevTools();
 
   if (isDevelopment) {
     window.loadURL(`http://localhost:${process.env.ELECTRON_WEBPACK_WDS_PORT}`);
@@ -66,7 +67,7 @@ app.on('ready', () => {
     },
   ]);
 
-  //Menu.setApplicationMenu(menu);
+  Menu.setApplicationMenu(menu);
 });
 
 app.on('window-all-closed', () => {

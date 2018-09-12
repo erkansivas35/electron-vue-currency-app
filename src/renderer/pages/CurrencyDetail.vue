@@ -17,13 +17,7 @@
       </div>      
     </div>  
 
-    <div class="content-row" v-if="!isLoading">
-      <div class="content-col">
-        <div class="chart-wrapper">
-          <GraphChart :chartData="chartData" :type="type" />
-        </div>
-      </div>
-
+    <div class="content-row">
       <div class="content-col">
         <div class="currency-info">
           <div class="col">
@@ -45,101 +39,109 @@
             </p>
           </div>
         </div>
-      </div>      
+      </div> 
+    </div>
+
+    <div class="content-row" v-if="!isLoading">
+      <div class="content-col">
+        <div class="chart-wrapper">
+          <GraphChart :chartData="chartData" :type="type" />
+        </div>
+      </div>     
     </div>     
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-import { setInterval } from 'timers';
-import Loading from '../components/Loading'
-import GraphChart from '../components/GraphChart'
+import axios from "axios";
+import { setInterval } from "timers";
+import Loading from "../components/Loading";
+import GraphChart from "../components/GraphChart";
 
 export default {
-  name: 'CurrencyDetail',
+  name: "CurrencyDetail",
   data() {
-    return {      
-      name: 'Curency Detail',
+    return {
+      name: "Curency Detail",
       isLoading: true,
       currents: [],
       chartData: [],
       type: this.$route.params.coinId
-    }
+    };
   },
   methods: {
     coinFetch(url) {
-      axios.get(url)
-          .then(response => {            
-            if (response.statusText == 'OK') {
-              this.currents = response.data  
-              this.isLoading = false         
-            }
-          })
-          .catch(e => {
-            console.log(e)
-          })  
+      axios
+        .get(url)
+        .then(response => {
+          if (response.statusText == "OK") {
+            this.currents = response.data;
+            this.isLoading = false;
+          }
+        })
+        .catch(e => {
+          console.log(e);
+        });
     },
     chartGraphFetch(url) {
-      axios.get(url)
-          .then(response => {
-            if (response.statusText == 'OK') {
-              this.chartData = response.data       
-            }
-          })
-          .catch(e => {
-            console.log(e)
-          })  
+      axios
+        .get(url)
+        .then(response => {
+          if (response.statusText == "OK") {
+            this.chartData = response.data;
+          }
+        })
+        .catch(e => {
+          console.log(e);
+        });
     },
     changeColor(val) {
-      return `col colFlex ${val >= 0 ? 'green' : 'red'}`
-    },    
-  },
-  created() {    
-    let type = this.$route.params.coinType
-    let id = this.$route.params.coinId
-    if (type == undefined && id == undefined) {
-      type = "currencies"
-      id = "USD"
-    } else {
-      type = this.$route.params.coinType
-      id = this.$route.params.coinId
+      return `col colFlex ${val >= 0 ? "green" : "red"}`;
     }
-    
-    let currentsUrl = `https://www.doviz.com/api/v1/${type}/${id}/latest`;       
-    let chartUrl = `https://doviz.com/api/v1/${type}/${id}/daily`;       
-    this.coinFetch(currentsUrl)       
-    this.chartGraphFetch(chartUrl)
+  },
+  created() {
+    let type = this.$route.params.coinType;
+    let id = this.$route.params.coinId;
+    if (type == undefined && id == undefined) {
+      type = "currencies";
+      id = "USD";
+    } else {
+      type = this.$route.params.coinType;
+      id = this.$route.params.coinId;
+    }
+
+    let currentsUrl = `https://www.doviz.com/api/v1/${type}/${id}/latest`;
+    let chartUrl = `https://doviz.com/api/v1/${type}/${id}/daily`;
+    this.coinFetch(currentsUrl);
+    this.chartGraphFetch(chartUrl);
 
     setInterval(() => {
-      if (this.$route.name == 'CurrencyDetail') {
-        this.coinFetch(currentsUrl)      
+      if (this.$route.name == "CurrencyDetail") {
+        this.coinFetch(currentsUrl);
       }
-    },5000)       
+    }, 5000);
   },
   filters: {
     arrowChange(val) {
-      return val >= 0 ? 'arrow-up' : 'arrow-down'
+      return val >= 0 ? "arrow-up" : "arrow-down";
     },
     rateFixed(val) {
-      return parseFloat(val).toFixed(2)
+      return parseFloat(val).toFixed(2);
     },
     coinFixed(val) {
-      return parseFloat(val).toFixed(4)
+      return parseFloat(val).toFixed(4);
     }
   },
   components: {
     Loading,
     GraphChart
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 .content {
   & .content-header-row {
-    margin-bottom: 20px;
-
     & .title {
       width: 100%;
 
@@ -184,7 +186,7 @@ export default {
       margin-bottom: 15px;
       border: 1px solid #e5e5e5;
       padding: 10px 10px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
       transition: 0.4s;
 
       &:hover {

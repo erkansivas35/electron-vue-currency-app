@@ -1,11 +1,14 @@
 {
   "name": "doviz-app",
+  "productName": "Foreign Currencies",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "electron-webpack dev",
-    "build": "electron-webpack && electron-builder"
+    "build": "electron-webpack && electron-builder",
+    "build-mac": "electron-packager . --overwrite --asar=true --platform=darwin --arch=x64 --icon=src/renderer/assets/icons.icns --prune=true --out=release-builds",
+    "create-mac": "electron-installer-dmg ./release-builds/Electron\\ tutorial\\ app-darwin-x64/Electron\\ tutorial\\ app.app electron-tutorial-app --out=release-builds --overwrite --icon=src/renderer/assets/icons.icns"
   },
   "author": "Erkan Sivas",
   "license": "MIT",
@@ -19,7 +22,9 @@
     "vue": "^2.5.16",
     "vue-loader": "^15.2.2",
     "vue-template-compiler": "^2.5.16",
-    "webpack": "^4.9.1"
+    "webpack": "^4.9.1",
+    "electron-installer-dmg": "^0.1.2",
+    "electron-packager": "^8.7.2"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.4",
