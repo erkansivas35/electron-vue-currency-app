@@ -59,6 +59,7 @@ app.on('ready', () => {
         {type: 'separator'},
         {
           label: 'Exit App',
+          accelerator: process.platform === 'darwin' ? 'Cmd+Q' : 'Alt+F4',
           click() {
             app.quit();
           },
@@ -71,7 +72,7 @@ app.on('ready', () => {
 });
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
+  app.quit();
+  // if (process.platform !== 'darwin') {
+  // }
 });
