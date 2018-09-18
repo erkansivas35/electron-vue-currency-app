@@ -57,7 +57,7 @@
     "code": "stellar",
     "koinim": 16,
     "name": "Stellar Lumens",
-    "image_path": ""
+    "image_path": "btc.png"
   },
   {
     "code": "eos",
