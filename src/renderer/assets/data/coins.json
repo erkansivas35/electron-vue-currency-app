@@ -1,0 +1,206 @@
+[
+  {
+    "code": "icon",
+    "koinim": 21,
+    "name": "ICON",
+    "image_path": "btc.png"
+  },
+  {
+    "code": "ethereum-classic",
+    "koinim": 29,
+    "name": "Ethereum Classic",
+    "image_path": "etc.png"
+  },
+  {
+    "code": "iostoken",
+    "koinim": 22,
+    "name": "IOStoken",
+    "image_path": "iost.png"
+  },
+  {
+    "code": "stratis",
+    "koinim": 34,
+    "name": "Stratis",
+    "image_path": "strat.png"
+  },
+  {
+    "code": "tether",
+    "koinim": 11,
+    "name": "Tether",
+    "image_path": "usdt.png"
+  },
+  {
+    "code": "comet",
+    "koinim": 27,
+    "name": "Comet",
+    "image_path": "comet.png"
+  },
+  {
+    "code": "vechain",
+    "koinim": 17,
+    "name": "VeChain",
+    "image_path": "ven.png"
+  },
+  {
+    "code": "decentraland",
+    "koinim": 19,
+    "name": "Decentraland",
+    "image_path": "btc.png"
+  },
+  {
+    "code": "request-network",
+    "koinim": 18,
+    "name": "Request Network",
+    "image_path": "req.png"
+  },
+  {
+    "code": "stellar",
+    "koinim": 16,
+    "name": "Stellar Lumens",
+    "image_path": ""
+  },
+  {
+    "code": "eos",
+    "koinim": 9,
+    "name": "EOS",
+    "image_path": "eos.png"
+  },
+  {
+    "code": "lunyr",
+    "koinim": 32,
+    "name": "Lunyr",
+    "image_path": "lun.png"
+  },
+  {
+    "code": "omisego",
+    "koinim": 8,
+    "name": "OmiseGO",
+    "image_path": "omg.png"
+  },
+  {
+    "code": "poet",
+    "koinim": 35,
+    "name": "Po.et",
+    "image_path": "poe.png"
+  },
+  {
+    "code": "bitcoin",
+    "koinim": 1,
+    "name": "Bitcoin",
+    "image_path": "btc.png"
+  },
+  {
+    "code": "ripple",
+    "koinim": 5,
+    "name": "Ripple",
+    "image_path": "ripple.png"
+  },
+  {
+    "code": "aelf",
+    "koinim": 23,
+    "name": "Aelf",
+    "image_path": "aelf.png"
+  },
+  {
+    "code": "monero",
+    "koinim": 12,
+    "name": "Monero",
+    "image_path": "monero.png"
+  },
+  {
+    "code": "monetha",
+    "koinim": 26,
+    "name": "Monetha",
+    "image_path": "mth.png"
+  },
+  {
+    "code": "litecoin",
+    "koinim": 2,
+    "name": "Litecoin",
+    "image_path": "litecoin.png"
+  },
+  {
+    "code": "viberate",
+    "koinim": 24,
+    "name": "Viberate",
+    "image_path": "btc.png"
+  },
+  {
+    "code": "vibe",
+    "koinim": 33,
+    "name": "VIBE",
+    "image_path": "vibe.png"
+  },
+  {
+    "code": "dash",
+    "koinim": 6,
+    "name": "Dash",
+    "image_path": "dash.png"
+  },
+  {
+    "code": "cindicator",
+    "koinim": 30,
+    "name": "Cindicator",
+    "image_path": "cnd.png"
+  },
+  {
+    "code": "iota",
+    "koinim": 7,
+    "name": "IOTA",
+    "image_path": "iota.png"
+  },
+  {
+    "code": "bitcoincash",
+    "koinim": 4,
+    "name": "Bitcoin Cash",
+    "image_path": "btg.png"
+  },
+  {
+    "code": "hshare",
+    "koinim": 28,
+    "name": "Hshare",
+    "image_path": "hshare.png"
+  },
+  {
+    "code": "tron",
+    "koinim": 13,
+    "name": "TRON",
+    "image_path": "trx.png"
+  },
+  {
+    "code": "populous",
+    "koinim": 20,
+    "name": "Populous",
+    "image_path": "btc.png"
+  },
+  {
+    "code": "waves",
+    "koinim": 14,
+    "name": "WAVES",
+    "image_path": "waves.png"
+  },
+  {
+    "code": "cardano",
+    "koinim": 15,
+    "name": "Cardano",
+    "image_path": "cardano.png"
+  },
+  {
+    "code": "neo",
+    "koinim": 10,
+    "name": "NEO",
+    "image_path": "neo.png"
+  },
+  {
+    "code": "ethereum",
+    "koinim": 3,
+    "name": "Ethereum",
+    "image_path": "eth.png"
+  },
+  {
+    "code": "bitconnect",
+    "koinim": 31,
+    "name": "BitConnect",
+    "image_path": "bcc.png"
+  }
+]

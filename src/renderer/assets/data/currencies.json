@@ -1,0 +1,380 @@
+[
+  {
+    "currency": 1,
+    "name": "amerikan-dolari",
+    "code": "USD",
+    "image_path": "unitedstates.png"
+  },
+  {
+    "currency": 2,
+    "name": "euro",
+    "code": "EUR",
+    "image_path": "europeanunion.png"
+  },
+  {
+    "currency": 3,
+    "name": "sterlin",
+    "code": "GBP",
+    "image_path": "unitedkingdom.png"
+  },
+  {
+    "currency": 7,
+    "name": "isvicre-frangi",
+    "code": "CHF",
+    "image_path": "swaziland.png"
+  },
+  {
+    "currency": 4,
+    "name": "kanada-dolari",
+    "code": "CAD",
+    "image_path": "canada.png"
+  },
+  {
+    "currency": 12,
+    "name": "rus-rublesi",
+    "code": "RUB",
+    "image_path": "russia.png"
+  },
+  {
+    "currency": 10,
+    "name": "birlesik-arap-emirlikleri-dirhemi",
+    "code": "AED",
+    "image_path": "unitedarabemirates.png"
+  },
+  {
+    "currency": 11,
+    "name": "avustralya-dolari",
+    "code": "AUD",
+    "image_path": "australia.png"
+  },
+  {
+    "currency": 5,
+    "name": "danimarka-kronu",
+    "code": "DKK",
+    "image_path": "denmark.png"
+  },
+  {
+    "currency": 6,
+    "name": "isvec-kronu",
+    "code": "SEK",
+    "image_path": "sweden.png"
+  },
+  {
+    "currency": 8,
+    "name": "norvec-kronu",
+    "code": "NOK",
+    "image_path": "norway.png"
+  },
+  {
+    "currency": 9,
+    "name": "japon-yeni",
+    "code": "JPY",
+    "image_path": "japan.png"
+  },
+  {
+    "currency": 13,
+    "name": "kuveyt-dinari",
+    "code": "KWD",
+    "image_path": "kuwait.png"
+  },
+  {
+    "currency": 14,
+    "name": "guney-afrika-randi",
+    "code": "ZAR",
+    "image_path": "southafrica.png"
+  },
+  {
+    "currency": 15,
+    "name": "bahreyn-dinari",
+    "code": "BHD",
+    "image_path": "bahrain.png"
+  },
+  {
+    "currency": 16,
+    "name": "libya-dinari",
+    "code": "LYD",
+    "image_path": "libya.png"
+  },
+  {
+    "currency": 17,
+    "name": "suudi-arabistan-riyali",
+    "code": "SAR",
+    "image_path": "saudiarabia.png"
+  },
+  {
+    "currency": 18,
+    "name": "irak-dinari",
+    "code": "IQD",
+    "image_path": "iraq.png"
+  },
+  {
+    "currency": 20,
+    "name": "israil-sekeli",
+    "code": "ILS",
+    "image_path": "israel.png"
+  },
+  {
+    "currency": 19,
+    "name": "iran-riyali",
+    "code": "IRR",
+    "image_path": "iran.png"
+  },
+  {
+    "currency": 21,
+    "name": "hindistan-rupisi",
+    "code": "INR",
+    "image_path": "india.png"
+  },
+  {
+    "currency": 22,
+    "name": "meksika-pesosu",
+    "code": "MXN",
+    "image_path": "mexico.png"
+  },
+  {
+    "currency": 23,
+    "name": "macar-forinti",
+    "code": "HUF",
+    "image_path": "hungary.png"
+  },
+  {
+    "currency": 24,
+    "name": "yeni-zelanda-dolari",
+    "code": "NZD",
+    "image_path": "newzealand.png"
+  },
+  {
+    "currency": 25,
+    "name": "brezilya-reali",
+    "code": "BRL",
+    "image_path": "brazil.png"
+  },
+  {
+    "currency": 26,
+    "name": "endonezya-rupiahi",
+    "code": "IDR",
+    "image_path": "indonesia.png"
+  },
+  {
+    "currency": 27,
+    "name": "cek-korunasi",
+    "code": "CSK",
+    "image_path": "czechrepublic.png"
+  },
+  {
+    "currency": 28,
+    "name": "polonya-zlotisi",
+    "code": "PLN",
+    "image_path": "poland.png"
+  },
+  {
+    "currency": 30,
+    "name": "romen-leyi",
+    "code": "RON",
+    "image_path": "romania.png"
+  },
+  {
+    "currency": 31,
+    "name": "cin-yuani",
+    "code": "CNY",
+    "image_path": "china.png"
+  },
+  {
+    "currency": 32,
+    "name": "arjantin-pesosu",
+    "code": "ARS",
+    "image_path": "argentina.png"
+  },
+  {
+    "currency": 33,
+    "name": "arnavutluk-leki",
+    "code": "ALL",
+    "image_path": "albania.png"
+  },
+  {
+    "currency": 34,
+    "name": "azerbaycan-manati",
+    "code": "AZN",
+    "image_path": "azerbaijan.png"
+  },
+  {
+    "currency": 35,
+    "name": "bosna-hersek-marki",
+    "code": "BAM",
+    "image_path": "bosniaandherzegovina.png"
+  },
+  {
+    "currency": 37,
+    "name": "sili-pesosu",
+    "code": "CLP",
+    "image_path": "chile.png"
+  },
+  {
+    "currency": 38,
+    "name": "kolombiya-pesosu",
+    "code": "COP",
+    "image_path": "colombia.png"
+  },
+  {
+    "currency": 39,
+    "name": "kostarika-kolonu",
+    "code": "CRC",
+    "image_path": "costarica.png"
+  },
+  {
+    "currency": 40,
+    "name": "cezayir-dinari",
+    "code": "DZD",
+    "image_path": "czechrepublic.png"
+  },
+  {
+    "currency": 41,
+    "name": "misir-lirasi",
+    "code": "EGP",
+    "image_path": "egypt.png"
+  },
+  {
+    "currency": 42,
+    "name": "hong-kong-dolari",
+    "code": "HKD",
+    "image_path": "hongkong.png"
+  },
+  {
+    "currency": 43,
+    "name": "hirvat-kunasi",
+    "code": "HRK",
+    "image_path": "croatia.png"
+  },
+  {
+    "currency": 44,
+    "name": "izlanda-kronasi",
+    "code": "ISK",
+    "image_path": "iceland.png"
+  },
+  {
+    "currency": 45,
+    "name": "urdun-dinari",
+    "code": "JOD",
+    "image_path": "jordan.png"
+  },
+  {
+    "currency": 46,
+    "name": "guney-kore-wonu",
+    "code": "KRW",
+    "image_path": "korea_south.png"
+  },
+  {
+    "currency": 47,
+    "name": "kazak-tengesi",
+    "code": "KZT",
+    "image_path": "kazakhstan.png"
+  },
+  {
+    "currency": 48,
+    "name": "lubnan-lirasi",
+    "code": "LBP",
+    "image_path": "lebanon.png"
+  },
+  {
+    "currency": 49,
+    "name": "sri-lanka-rupisi",
+    "code": "LKR",
+    "image_path": "srilanka.png"
+  },
+  {
+    "currency": 52,
+    "name": "fas-dirhemi",
+    "code": "MAD",
+    "image_path": "morocco.png"
+  },
+  {
+    "currency": 53,
+    "name": "moldova-leusu",
+    "code": "MDL",
+    "image_path": "moldova.png"
+  },
+  {
+    "currency": 54,
+    "name": "makedon-dinari",
+    "code": "MKD",
+    "image_path": "macedonia.png"
+  },
+  {
+    "currency": 55,
+    "name": "malezya-ringgiti",
+    "code": "MYR",
+    "image_path": "malaysia.png"
+  },
+  {
+    "currency": 56,
+    "name": "umman-riyali",
+    "code": "OMR",
+    "image_path": "oman.png"
+  },
+  {
+    "currency": 57,
+    "name": "peru-inti",
+    "code": "PEN",
+    "image_path": "peru.png"
+  },
+  {
+    "currency": 58,
+    "name": "filipinler-pesosu",
+    "code": "PHP",
+    "image_path": "philippines.png"
+  },
+  {
+    "currency": 59,
+    "name": "pakistan-rupisi",
+    "code": "PKR",
+    "image_path": "pakistan.png"
+  },
+  {
+    "currency": 60,
+    "name": "katar-riyali",
+    "code": "QAR",
+    "image_path": "qatar.png"
+  },
+  {
+    "currency": 61,
+    "name": "sirbistan-dinari",
+    "code": "RSD",
+    "image_path": "serbia.png"
+  },
+  {
+    "currency": 62,
+    "name": "singapur-dolari",
+    "code": "SGD",
+    "image_path": "singapore.png"
+  },
+  {
+    "currency": 63,
+    "name": "suriye-lirasi",
+    "code": "SYP",
+    "image_path": "syria.png"
+  },
+  {
+    "currency": 64,
+    "name": "tayland-bahti",
+    "code": "THB",
+    "image_path": "thailand.png"
+  },
+  {
+    "currency": 65,
+    "name": "yeni-tayvan-dolari",
+    "code": "TWD",
+    "image_path": "taiwan.png"
+  },
+  {
+    "currency": 66,
+    "name": "ukrayna-grivnasi",
+    "code": "UAH",
+    "image_path": "ukraine.png"
+  },
+  {
+    "currency": 67,
+    "name": "uruguay-pesosu",
+    "code": "UYU",
+    "image_path": "uruguay.png"
+  }
+]
