@@ -45,13 +45,16 @@ export default {
     currents: {
       type: Array,
       required: true
+    },
+    isLoading: {
+      type: Boolean,
+      required: true
     }
   },
   data() {
     return {
       searchCoins: '',
-      imageUrl: [],
-      isLoading: true
+      imageUrl: []
     };
   },
   methods: {
@@ -73,11 +76,9 @@ export default {
     imageFetch() {
       let coinType = this.title.replace(' ', '');
 
-      this.isLoading = true
       axios.get(`https://gitlab.com/erkansivas35/electron-vue-currency-app/raw/master/src/renderer/assets/data/${coinType}.json`)
         .then(res => {
-          this.imageUrl = res.data 
-          this.isLoading = false        
+          this.imageUrl = res.data       
       });
     },
     imageLink(index) {
