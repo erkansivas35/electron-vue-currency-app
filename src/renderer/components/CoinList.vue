@@ -1,28 +1,28 @@
 <template>
-  <div class="content-row" :id="title | idFixed">
-    <div class="title">
+  <div class='content-row' :id='title | idFixed'>
+    <div class='title'>
       <p>{{ title }}</p>
     </div>
-    <div class="content-row">
-      <Search v-on:coinSearching="searchCoin" :title="title" v-if="!isLoading" />
+    <div class='content-row'>
+      <Search v-on:coinSearching='searchCoin' :title='title' v-if='!isLoading' />
     </div>    
-    <div class="content-box">
-      <Loading v-if="isLoading" />
-      <div class="content-box-col" v-for="(current, index) in filterCoins" :key="index" v-if="!isLoading">
-          <div class="coin-logo">
-            <router-link :to="coinDetailGo(current.code)">
-              <img :src="imageLink(current.code)" :alt="current.full_name">
+    <div class='content-box'>
+      <Loading v-if='isLoading' />
+      <div class='content-box-col' v-for='(current, index) in filterCoins' :key='index' v-if='!isLoading'>
+          <div class='coin-logo'>
+            <router-link :to='coinDetailGo(current.code)'>
+              <img :src='imageLink(index)' :alt='current.full_name'>
             </router-link>
           </div>
-          <div class="coin-info">
-          <div class="coin-name">
+          <div class='coin-info'>
+          <div class='coin-name'>
             {{ current.code | nameFixed }}
           </div>
-          <div class="coin-full-name">
+          <div class='coin-full-name'>
             {{ current.full_name }}
           </div>
-          <div :class="current.change_rate | changeRate ">
-            <span :class="current.change_rate | arrowChange"></span> {{ current.selling | coinFixed }}
+          <div :class='current.change_rate | changeRate '>
+            <span :class='current.change_rate | arrowChange'></span> {{ current.selling | coinFixed }}
           </div>              
           </div>
       </div>                                                      
@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import Search from '../components/Search'
-import Loading from '../components/Loading'
+import Search from '../components/Search';
+import Loading from '../components/Loading';
 import axios from 'axios';
 
 export default {
@@ -50,63 +50,74 @@ export default {
       type: Boolean,
       required: false
     }
-  }, 
+  },
   data() {
     return {
-      searchCoins: ''
-    }
+      searchCoins: '',
+      imageUrl: []
+    };
   },
   methods: {
     searchCoin(q) {
       this.searchCoins = q;
     },
     coinDetailGo(routerVal) {
-      let coinType = this.title.replace(' ', '');      
+      let coinType = this.title.replace(' ', '');
       switch (coinType) {
-              case 'Currency':
-                coinType = 'currencies'
-                break;
-              case 'CryptoCurrency':
-                coinType = 'coins'
-                break;
-            }         
-      return `/currency-detail/${routerVal}/${coinType}`
+        case 'Currency':
+          coinType = 'currencies';
+          break;
+        case 'CryptoCurrency':
+          coinType = 'coins';
+          break;
+      }
+      return `/currency-detail/${routerVal}/${coinType}`;
     },
-    imageLink(coinCode) {
-      let coinType = this.title.replace(' ', ''); 
+    imageFetch() {
+      let coinType = this.title.replace(' ', '');
 
-      axios.get(`http://localhost:9080/assets/data/${coinType}.json`)
-      .then(res => {
-        console.log(res)
-      })
+      axios.get(`https://gitlab.com/erkansivas35/electron-vue-currency-app/raw/master/src/renderer/assets/data/${coinType}.json`)
+        .then(res => {
+          this.imageUrl = res.data         
+      });
+    },
+    imageLink(index) {
+      let coinType = this.title.replace(' ', '');
+
+      return `/src/renderer/assets/img/${coinType}/${this.imageUrl[index].image_path}`
     }
+  },
+  mounted(){
+    this.imageFetch()
   },
   filters: {
     coinFixed(val) {
-      return val.toFixed(4)
+      return val.toFixed(4);
     },
     nameFixed(val) {
       let value = val;
       if (val.length > 3) {
-        value = `${val.substring(0, 4)}...`
+        value = `${val.substring(0, 4)}...`;
       }
 
-      return value
+      return value;
     },
     idFixed(val) {
-      return val.replace(' ', '')
+      return val.replace(' ', '');
     },
     changeRate(val) {
-      return `coin-price ${val >= 0 ? 'green' : 'red'}`
+      return `coin-price ${val >= 0 ? 'green' : 'red'}`;
     },
     arrowChange(val) {
-      return val >= 0 ? 'arrow-up' : 'arrow-down'
+      return val >= 0 ? 'arrow-up' : 'arrow-down';
     }
   },
   computed: {
     filterCoins() {
       return this.currents.filter(coin => {
-        return coin.full_name.toLowerCase().includes(this.searchCoins.toLowerCase())
+        return coin.full_name
+          .toLowerCase()
+          .includes(this.searchCoins.toLowerCase());
       });
     }
   },
@@ -114,10 +125,10 @@ export default {
     Search,
     Loading
   }
-}
+};
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 .content-row {
   width: 100%;
   display: flex;
