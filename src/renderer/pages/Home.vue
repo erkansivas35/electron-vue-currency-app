@@ -14,9 +14,9 @@
       </div>        
     </div>
 
-    <CoinList title="Currency" :currents="currents" :isLoading="isLoading" />
+    <CoinList title="Currency" :currents="currents" />
 
-    <CoinList title="Crypto Currency" :currents="cryptoCurrents" :isLoading="isLoading" />
+    <CoinList title="Crypto Currency" :currents="cryptoCurrents" />
 
   </div>  
 </template>

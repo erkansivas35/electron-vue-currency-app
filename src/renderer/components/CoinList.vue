@@ -1,6 +1,6 @@
 <template>
   <div class='content-row' :id='title | idFixed'>
-    <div class='title'>
+      <div class='title'>
       <p>{{ title }}</p>
     </div>
     <div class='content-row'>
@@ -10,7 +10,7 @@
       <Loading v-if='isLoading' />
       <div class='content-box-col' v-for='(current, index) in filterCoins' :key='index' v-if='!isLoading'>
           <div class='coin-logo'>
-            <router-link :to='coinDetailGo(current.code)'>
+            <router-link :to='coinDetailGo(current.code, index)'>
               <img :src='imageLink(index)' :alt='current.full_name'>
             </router-link>
           </div>
@@ -45,23 +45,20 @@ export default {
     currents: {
       type: Array,
       required: true
-    },
-    isLoading: {
-      type: Boolean,
-      required: false
     }
   },
   data() {
     return {
       searchCoins: '',
-      imageUrl: []
+      imageUrl: [],
+      isLoading: true
     };
   },
   methods: {
     searchCoin(q) {
       this.searchCoins = q;
     },
-    coinDetailGo(routerVal) {
+    coinDetailGo(routerVal, index) {
       let coinType = this.title.replace(' ', '');
       switch (coinType) {
         case 'Currency':
@@ -71,20 +68,22 @@ export default {
           coinType = 'coins';
           break;
       }
-      return `/currency-detail/${routerVal}/${coinType}`;
+      return `/currency-detail/${routerVal}/${coinType}/${index}`;
     },
     imageFetch() {
       let coinType = this.title.replace(' ', '');
 
+      this.isLoading = true
       axios.get(`https://gitlab.com/erkansivas35/electron-vue-currency-app/raw/master/src/renderer/assets/data/${coinType}.json`)
         .then(res => {
-          this.imageUrl = res.data         
+          this.imageUrl = res.data 
+          this.isLoading = false        
       });
     },
     imageLink(index) {
       let coinType = this.title.replace(' ', '');
 
-      return `/src/renderer/assets/img/${coinType}/${this.imageUrl[index].image_path}`
+      return `https://gitlab.com/erkansivas35/electron-vue-currency-app/raw/master/src/renderer/assets/img/${coinType}/${this.imageUrl[index].image_path}`
     }
   },
   mounted(){

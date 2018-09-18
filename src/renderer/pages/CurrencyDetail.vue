@@ -22,7 +22,7 @@
         <div class="currency-info">
           <div class="col">
             <span>
-              <img src="../assets/img/usd-icon.png" :alt="currents.full_name">
+              <img :src="image()" :alt="currents.full_name">
               {{ currents.full_name }}
             </span>
           </div>
@@ -66,7 +66,8 @@ export default {
       isLoading: true,
       currents: [],
       chartData: [],
-      type: this.$route.params.coinId
+      type: this.$route.params.coinId,
+      imageUrl: []
     };
   },
   methods: {
@@ -97,6 +98,33 @@ export default {
     },
     changeColor(val) {
       return `col colFlex ${val >= 0 ? "green" : "red"}`;
+    },
+    coinSwitch() {
+      let coinType = this.$route.params.coinType
+      switch (coinType) {
+        case 'currencies':
+          coinType = 'Currency';
+          break;
+        case 'coins':
+          coinType = 'CryptoCurrency';
+          break;
+      }
+
+      return coinType
+    },
+    imageLink() {
+      let coinType = this.coinSwitch()
+
+      axios.get(`https://gitlab.com/erkansivas35/electron-vue-currency-app/raw/master/src/renderer/assets/data/${coinType}.json`)
+        .then(res => {
+          this.imageUrl = res.data      
+      });      
+    },
+    image() {
+      let id = this.$route.params.id
+      let coinType = this.coinSwitch()
+
+      return `https://gitlab.com/erkansivas35/electron-vue-currency-app/raw/master/src/renderer/assets/img/${coinType}/${this.imageUrl[id].image_path}`
     }
   },
   created() {
@@ -114,6 +142,7 @@ export default {
     let chartUrl = `https://doviz.com/api/v1/${type}/${id}/daily`;
     this.coinFetch(currentsUrl);
     this.chartGraphFetch(chartUrl);
+    this.imageLink();
 
     setInterval(() => {
       if (this.$route.name == "CurrencyDetail") {
