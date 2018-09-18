@@ -17,7 +17,7 @@
       </div>      
     </div>  
 
-    <div class="content-row">
+    <div class="content-row" v-if="!isLoading">
       <div class="content-col">
         <div class="currency-info">
           <div class="col">
