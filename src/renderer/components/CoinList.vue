@@ -11,7 +11,7 @@
       <div class="content-box-col" v-for="(current, index) in filterCoins" :key="index" v-if="!isLoading">
           <div class="coin-logo">
             <router-link :to="coinDetailGo(current.code)">
-              <img src="../assets/img/usd-icon.png" :alt="current.full_name">
+              <img :src="imageLink(current.code)" :alt="current.full_name">
             </router-link>
           </div>
           <div class="coin-info">
@@ -33,6 +33,7 @@
 <script>
 import Search from '../components/Search'
 import Loading from '../components/Loading'
+import axios from 'axios';
 
 export default {
   name: 'CoinList',
@@ -70,6 +71,14 @@ export default {
                 break;
             }         
       return `/currency-detail/${routerVal}/${coinType}`
+    },
+    imageLink(coinCode) {
+      let coinType = this.title.replace(' ', ''); 
+
+      axios.get(`http://localhost:9080/assets/data/${coinType}.json`)
+      .then(res => {
+        console.log(res)
+      })
     }
   },
   filters: {
