@@ -83,8 +83,9 @@ export default {
     },
     imageLink(index) {
       let coinType = this.title.replace(' ', '');
+      let imageIndex = this.filterImage[index].image_path;
 
-      return `https://gitlab.com/erkansivas35/electron-vue-currency-app/raw/master/src/renderer/assets/img/${coinType}/${this.imageUrl[index].image_path}`
+      return `https://gitlab.com/erkansivas35/electron-vue-currency-app/raw/master/src/renderer/assets/img/${coinType}/${imageIndex}`
     }
   },
   mounted(){
@@ -117,9 +118,16 @@ export default {
       return this.currents.filter(coin => {
         return coin.full_name
           .toLowerCase()
-          .includes(this.searchCoins.toLowerCase());
-      });
-    }
+          .includes(this.searchCoins.toLowerCase())       
+      })
+    },
+    filterImage() {
+      return this.imageUrl.filter(img => {
+        return img.name
+          .toLowerCase()
+          .includes(this.searchCoins.toLowerCase())       
+      })
+    }    
   },
   components: {
     Search,
