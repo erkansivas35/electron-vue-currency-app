@@ -121,10 +121,16 @@ export default {
       });      
     },
     image() {
-      let id = this.$route.params.id
+      let code = this.$route.params.coinId
       let coinType = this.coinSwitch()
+      let imageGet = ``
+      for (let i = 0; i < this.imageUrl.length; i++) {
+        if (this.imageUrl[i].code == code) {
+          imageGet = `https://gitlab.com/erkansivas35/electron-vue-currency-app/raw/master/src/renderer/assets/img/${coinType}/${this.imageUrl[i].image_path}`          
+        }
+      }
 
-      return `https://gitlab.com/erkansivas35/electron-vue-currency-app/raw/master/src/renderer/assets/img/${coinType}/${this.imageUrl[id].image_path}`
+      return imageGet
     }
   },
   created() {

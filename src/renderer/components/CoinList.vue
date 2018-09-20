@@ -61,7 +61,7 @@ export default {
     searchCoin(q) {
       this.searchCoins = q;
     },
-    coinDetailGo(routerVal, index) {
+    coinDetailGo(routerVal) {
       let coinType = this.title.replace(' ', '');
       switch (coinType) {
         case 'Currency':
@@ -71,7 +71,7 @@ export default {
           coinType = 'coins';
           break;
       }
-      return `/currency-detail/${routerVal}/${coinType}/${index}`;
+      return `/currency-detail/${routerVal}/${coinType}`;
     },
     imageFetch() {
       let coinType = this.title.replace(' ', '');
