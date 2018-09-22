@@ -15,12 +15,12 @@
         <router-link to="/currency-detail" :class="menuLink()"><font-awesome-icon icon="rocket" /></router-link>
       </div>        
     </div> -->
-    <!-- <div class="menu-col">
+    <div class="menu-col">
       <div class="icon">
-        <a href="#"><font-awesome-icon icon="newspaper" /></a>
+        <router-link to="/coin-translate"><font-awesome-icon icon="coins" /></router-link>
       </div>
     </div>
-    <div class="menu-col">
+    <!-- <div class="menu-col">
       <div class="icon">
         <a href="#"><font-awesome-icon icon="cog" /></a>
       </div>
