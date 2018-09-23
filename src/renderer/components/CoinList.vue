@@ -16,10 +16,14 @@
           </div>
           <div class='coin-info'>
           <div class='coin-name'>
-            {{ current.code | nameFixed }}
+            <router-link :to='coinDetailGo(current.code, index)'>
+              {{ current.code | nameFixed }}
+            </router-link>
           </div>
           <div class='coin-full-name'>
-            {{ current.full_name }}
+            <router-link :to='coinDetailGo(current.code, index)'>
+              {{ current.full_name }}
+            </router-link>
           </div>
           <div :class='current.change_rate | changeRate '>
             <span :class='current.change_rate | arrowChange'></span> {{ current.selling | coinFixed }}
@@ -279,5 +283,14 @@ export default {
       }
     }
   }
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+.coin-full-name a {
+  color: #fff;
 }
 </style>

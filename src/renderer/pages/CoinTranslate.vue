@@ -53,40 +53,44 @@ export default {
       selectCryptoCurrency: ''
     };
   },
+  methods: {
+    currencyCalc(type, out, coinString) {
+      let result = type * out
+      result = `${result.toFixed(2)}${coinString}`
+
+      return result == `0.00${coinString}` ? '': result
+    },
+    selectFetch(url, type) {
+      axios.get(url)
+          .then(res => {
+            if (res.statusText == "OK") {
+              switch (type) {
+                case 'currencies':
+                  this.currencies = res.data
+                  break;
+                case 'cryptoCurrencies':
+                  this.cryptoCurrencies = res.data
+                  break;
+              }
+              
+            }
+          })
+          .catch(e => {
+            console.log(`Error ${e}`)
+          })      
+    }
+  },
   computed: {
     resultCurrency() {
-      let result = this.inCoin * this.selectCurrency
-      result = `${result.toFixed(2)} TL`
-
-      return result == '0.00 TL' ? '': result
+      return this.currencyCalc(this.inCoin, this.selectCurrency, 'TL')
     },
     resultCryptoCurrency() {
-      let result2 = this.cryptoInCoin * this.selectCryptoCurrency
-      result2 = `${result2.toFixed(2)} $`
-
-      return result2 == '0.00 $' ? '': result2
+      return this.currencyCalc(this.cryptoInCoin, this.selectCryptoCurrency, '$')
     }    
   },
   created() {
-    axios.get('https://doviz.com/api/v1/currencies/all/latest')
-        .then(res => {
-          if (res.statusText == "OK") {
-            this.currencies = res.data
-          }
-        })
-        .catch(e => {
-          console.log(`Error ${e}`)
-        })
-
-    axios.get('https://www.doviz.com/api/v1/coins/all/latest')
-        .then(res => {
-          if (res.statusText == "OK") {
-            this.cryptoCurrencies = res.data
-          }
-        })
-        .catch(e => {
-          console.log(`Error ${e}`)
-        })        
+    this.selectFetch('https://doviz.com/api/v1/currencies/all/latest', 'currencies')
+    this.selectFetch('https://www.doviz.com/api/v1/coins/all/latest', 'cryptoCurrencies')       
   }
 };
 </script>
