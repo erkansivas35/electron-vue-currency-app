@@ -71,8 +71,7 @@ export default {
                 case 'cryptoCurrencies':
                   this.cryptoCurrencies = res.data
                   break;
-              }
-              
+              }              
             }
           })
           .catch(e => {

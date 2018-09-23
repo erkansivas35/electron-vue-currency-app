@@ -68,7 +68,7 @@ app.on('ready', () => {
     },
   ]);
 
-  //Menu.setApplicationMenu(menu);
+  Menu.setApplicationMenu(menu);
 });
 
 app.on('window-all-closed', () => {
